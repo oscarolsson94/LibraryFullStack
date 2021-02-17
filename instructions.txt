@@ -1,0 +1,7 @@
+npm init -y
+npm install express, ejs, express-ejs-layouts
+npm install --save-dev nodemon
+
+make server script in package.json:
+"start": "node server.js",
+"devStart": "nodemon server.js"
