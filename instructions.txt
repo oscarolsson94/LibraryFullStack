@@ -12,3 +12,5 @@ npm install body-parser
 
 see site at https://oscarlibrary.herokuapp.com/
 auto-deploying from git repo
+
+npm install multer - allow us to work with multi part forms (file form)
