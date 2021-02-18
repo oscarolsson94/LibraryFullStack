@@ -33,3 +33,6 @@ app.listen(process.env.PORT);
 //routers
 const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
+
+const authorRouter = require('./routes/authors');
+app.use('/authors', authorRouter)
