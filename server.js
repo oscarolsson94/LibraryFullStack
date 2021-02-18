@@ -37,4 +37,7 @@ const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
 const authorRouter = require('./routes/authors');
-app.use('/authors', authorRouter)
+app.use('/authors', authorRouter);
+
+const bookRouter = require('./routes/books');
+app.use('/books', bookRouter);
