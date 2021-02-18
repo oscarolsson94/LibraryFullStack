@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
         searchOptions.name = new RegExp(req.query.name, 'i'); // i means case insensitive
     }
     try {
-        const authors = await Author.find({searchOptions}); // get all authors with empty obj
+        const authors = await Author.find(searchOptions); // get all authors with empty obj
         res.render('authors/index', { authors: authors, searchOptions: req.query });
     } catch {
         res.redirect('/');
