@@ -8,6 +8,7 @@ make server script in package.json:
 
 npm install mongoose
 npm install --save-dev dotenv
+npm install body-parser
 
 see site at https://oscarlibrary.herokuapp.com/
 auto-deploying from git repo
