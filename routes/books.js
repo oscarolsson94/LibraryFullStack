@@ -1,7 +1,18 @@
-const express = require('express');
-const router = express.Router();
-const Book = require('../models/book');
-const Author = require('../models/author');
+const express = require('express')
+const router = express.Router()
+const multer = require('multer')
+const path = require('path')
+const fs = require('fs')
+const Book = require('../models/book')
+const Author = require('../models/author')
+const uploadPath = path.join('public', Book.coverImageBasePath)
+const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif']
+const upload = multer({
+  dest: uploadPath,
+  fileFilter: (req, file, callback) => {
+    callback(null, imageMimeTypes.includes(file.mimetype))
+  }
+})
 
 // All Books Route
 router.get('/', async (req, res) => {
@@ -76,6 +87,3 @@ async function renderNewPage(res, book, hasError = false) {
 }
 
 module.exports = router
-
-    © 2021 GitHub, Inc.
-    Terms
