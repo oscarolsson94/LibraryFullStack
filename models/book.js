@@ -21,9 +21,13 @@ const bookSchema = new mongoose.Schema({
         required: true,
         default: Date.now
     },
-    coverImageName: {
+    coverImage: {
+        type: Buffer,
+        required: true
+    },
+    coverImageType: {
         type: String,
-        require: true
+        required: true
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
@@ -32,4 +36,10 @@ const bookSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Book', bookSchema); // Book = name of table in DB
+bookSchema.virtual('coverImagePath').get(function () {
+    if (this.coverImage != null && this.coverImageType != null) {
+        return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`
+    };
+});
+
+module.exports = mongoose.model('Book', bookSchema);
